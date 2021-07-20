@@ -1,0 +1,134 @@
+<div>
+  <h2>Calculate Ratio and %</h2>
+  <div *ngIf="!this.showOutput">
+    <code>
+      Inputs such as company name/code, face value, market value are used to
+      show ratios
+    </code>
+    <br />
+    <label htmlFor="company">Company Name</label>
+    <input
+      type="text"
+      name="company"
+      [(ngModel)]="this.name"
+      class="form-control"
+    />
+    <br />
+
+    <label htmlFor="faceValue">Face value</label>
+    <input
+      type="text"
+      name="faceValue"
+      [(ngModel)]="this.faceValue"
+      class="form-control"
+    />
+    <br />
+    <label htmlFor="marketPrice">Market price</label>
+    <input
+      type="text"
+      name="marketPrice"
+      [(ngModel)]="this.marketPrice"
+      class="form-control"
+    />
+    <br />
+    <label htmlFor="pat">Profit after tax</label>
+    <input
+      type="text"
+      name="pat"
+      [(ngModel)]="this.profitAfterTax"
+      class="form-control"
+    />
+
+    <br />
+    <label htmlFor="equity">Total equity</label>
+    <input
+      type="text"
+      name="equity"
+      [(ngModel)]="this.equityCapital"
+      class="form-control"
+    />
+    <br />
+
+    <label htmlFor="reservesAndSurplus">Reserves & Surplus</label>
+    <div class="input-group">
+      <input
+        type="text"
+        name="reservesAndSurplus"
+        [(ngModel)]="this.reservesAndSurplus"
+        class="form-control"
+      />
+      <div class="input-group-append">
+        <span class="input-group-text">RS</span>
+      </div>
+    </div>
+    <button (click)="this.onSubmit()" class="btn btn-outline-primary">
+      Calculate
+    </button>
+  </div>
+
+  <br />
+
+  <br />
+  <code *ngIf="this.showOutput">
+    <button
+      class="btn btn-outline-primary"
+      (click)="this.showOutput = !this.showOutput"
+    >
+      Edit details
+    </button>
+    <span
+      [ngStyle]="{cursor: 'pointer'}"
+      (click)="this.showOutput = !this.showOutput"
+    >
+      <span *ngIf="this.name">{{this.name}}</span></span
+    >
+    <br />
+    <span class="feature-text">Equity Capital + Reserves and Surplus:</span>
+
+    <ol type="1">
+      <li>Equity: <span class="feature-item"> {{this.equityCapital}}</span></li>
+      <li>
+        Reservers and Surplus:<span class="feature-item">
+          {{this.reservesAndSurplus}}</span
+        >
+      </li>
+    </ol>
+    <span class="feature-text">Stock metadata</span>
+    <ol>
+      <li>
+        <span class="feature-text">number of shares: </span>
+        {{this.numberOfEquityShares | showDigits: 0}}
+      </li>
+      <li>
+        <span class="feature-text">Book value per share: </span>
+        {{this.bookValuePerShare | showDigits: 2}} RS
+      </li>
+      <li>
+        <span class="feature-text">Earnings per share: </span>
+        {{this.earningsPerShare | showDigits: 2}} RS
+      </li>
+    </ol>
+
+    <span class="feature-text">Ratios & %</span>
+    <ol>
+      <li>
+        <span class="feature-text">Return on equity: </span
+        ><span class="feature-item">
+          {{this.returnOnEquity | showDigits: 2}} %</span
+        >
+      </li>
+      <li>
+        <span class="feature-text">Price by earnings-value: </span>
+        <span class="feature-item">
+          {{this.priceByEarnings | showDigits: 2}} times</span
+        >
+      </li>
+      <li>
+        <span class="feature-text">Price by book-value: </span>
+        <span class="feature-item">
+          {{this.priceByBook | showDigits: 2}} times</span
+        >
+      </li>
+    </ol>
+  </code>
+</div>

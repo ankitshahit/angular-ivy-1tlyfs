@@ -1,0 +1,11 @@
+.wrapper {
+  align-items: center;
+  justify-content: center;
+}
+.todo-text {
+  flex: 2;
+}
+
+.todo-button {
+  flex: 3;
+}

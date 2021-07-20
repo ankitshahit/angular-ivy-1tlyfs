@@ -1,0 +1,14 @@
+<div class="container" *ngIf="false">
+  <div>
+    <h2 style="text-align:center;">TODO App</h2>
+  </div>
+  <br />
+  <div>
+    <app-new-todo-item
+      (newItemEvent)="this.onNewItem($event)"
+    ></app-new-todo-item>
+  </div>
+  <div>
+    <app-list-todo-item></app-list-todo-item>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let item of this.getItems(); let index = index;">
+    <div>- {{item.value |titlecase | slice:0:4}}</div>
+  </li>
+</ul>
+
+<button class="btn btn-danger" (click)="this.clearItems()">
+  Clear All Items
+</button>

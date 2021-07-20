@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <input
+    class="todo-text "
+    type="text"
+    [(ngModel)]="this.newTodoItem"
+    name="todoItem"
+    (keyup.enter)="this.onNewItem()"
+  />
+  <button class="todo-button btn btn-dark" (click)="this.onNewItem()">
+    Add
+  </button>
+</div>
